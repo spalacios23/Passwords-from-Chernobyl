@@ -47,4 +47,4 @@ You can also turn this thing into a geiger counter quite easily!!
 
 2. Attach the included plastic shield using the included standoffs.
 
-
+3. 
