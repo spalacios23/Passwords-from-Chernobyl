@@ -4,9 +4,9 @@
 #include "Adafruit_GFX.h" //Includes core graphics library
 #include "Adafruit_SSD1351.h" //Includes hardware specific library
 
-int val = 0;
-int volatile val2 = 33;
 
+
+int volatile val2 = 33;
 
 
 
@@ -36,6 +36,7 @@ extern const uint16_t logo[];
 #define WHITE           0xFFFF
 #define GREY            0x8410
 #define ORANGE          0xE880
+#define GYELLOW         0xFFF0 
 
 
 Adafruit_SSD1351 display = Adafruit_SSD1351(SCREEN_WIDTH, SCREEN_HEIGHT, &SPI, CS_PIN, DC_PIN, RST_PIN);
@@ -43,18 +44,26 @@ Adafruit_SSD1351 display = Adafruit_SSD1351(SCREEN_WIDTH, SCREEN_HEIGHT, &SPI, C
 void setup() {
   Serial.begin(9600);
   display.begin();
-  display.fillScreen(BLACK);
-  void setCursor(int16_t x0, int16_t y0);
+  display.fillScreen(CYAN);
+  display.setCursor(45, 10);
   display.setTextColor(BLUE);
-  void setTextSize(uint8_t size);
-  void setTextWrap(boolean w);
-  display.print("Passwords From Chernobyl");
+  display.setTextSize(2);
+  
+  display.print("PFC");
 
   
   
   display.drawRGBBitmap(32,32,logo,64,64);
+
+  display.setTextSize(1);
+  
   display.setCursor(10, 105);
   display.print("By Gillio and Santi");
+
+  while (!Serial) 
+ { 
+   ; // Wait for serial to connect, adds security
+ }
 }
 
 
