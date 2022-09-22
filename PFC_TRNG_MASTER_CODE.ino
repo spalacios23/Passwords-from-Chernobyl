@@ -56,7 +56,7 @@ void setup() {
   display.setCursor(10, 105);
   display.print("By Gillio and Santi");
 }
-/*Figure this shit out*/
+
 
 
 void loop() {
